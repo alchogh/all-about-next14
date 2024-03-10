@@ -1,10 +1,25 @@
-import React from "react";
+import { Metadata } from "next";
 
-export default function ProductDetails({
+interface PrudctDetailProps {
+  params: {
+    productId: string;
+  };
+}
+
+export const generateMetadata = async ({
   params,
-}: {
-  params: { productId: string };
-}) {
+}: PrudctDetailProps): Promise<Metadata> => {
+  const title = await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`iphone ${params.productId}`);
+    }, 100);
+  });
+  return {
+    title: `Product ${title}`,
+  };
+};
+
+export default function ProductDetails({ params }: PrudctDetailProps) {
   return (
     <div>
       ProductDetails
