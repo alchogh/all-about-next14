@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 
 export default function ReviewDetail({
   params,
@@ -8,6 +9,7 @@ export default function ReviewDetail({
     reviewId: string;
   };
 }) {
+  if (parseInt(params.reviewId) < 20) notFound();
   return (
     <div>
       <p> productId: {params.productId} </p>

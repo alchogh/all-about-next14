@@ -11,12 +11,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header style={{ backgroundColor: "lightblue", padding: "1rem" }}>
+          header
+        </header>
+        {children}
+        <footer
+          style={{ backgroundColor: "lightgoldenrodyellow", padding: "1rem" }}
+        >
+          footer
+        </footer>
+      </body>
     </html>
   );
 }
