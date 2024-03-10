@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 interface PrudctDetailProps {
   params: {
@@ -24,6 +25,7 @@ export const generateMetadata = async ({
 export default function ProductDetails({ params }: PrudctDetailProps) {
   return (
     <div>
+      <Link href="/">home</Link>
       ProductDetails
       {params.productId}
     </div>
