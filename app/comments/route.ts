@@ -12,7 +12,8 @@ export async function POST(request: Request) {
   };
   console.log(comment);
   comments.push(newComment);
-  return new Response(JSON.stringify(newComment), {
+  const updateComment =  [...comment, newComment]
+  return new Response(JSON.stringify(updateComment), {
     headers: {
       "Content-Type": "application/json",
     },
